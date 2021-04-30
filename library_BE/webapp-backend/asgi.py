@@ -1,5 +1,5 @@
 """
-ASGI config for library_BE project.
+ASGI config for webapp-backend project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'library_BE.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webapp-backend.settings')
 
 application = get_asgi_application()
