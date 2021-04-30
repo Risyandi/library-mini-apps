@@ -80,6 +80,8 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     # ===========================================
+
+    # ========== setup for mysql database =======
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'library-db',
