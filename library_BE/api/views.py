@@ -16,6 +16,21 @@ class BukuViewSet(viewsets.ModelViewSet):
     queryset = Buku.objects.all()
     serializer_class = serializer.BukuSerializer
 
+# Create view response Kategori Buku api
+class KategoriViewSet(viewsets.ModelViewSet):
+    queryset = Kategori.objects.all()
+    serializer_class = serializer.KategoriSerializer
+
+# Create view response Pelanggan api
+class PelangganViewSet(viewsets.ModelViewSet):
+    queryset = Pelanggan.objects.all()
+    serializer_class = serializer.PelangganSerializer
+
+# Create view response Pelanggan api
+class TransaksiViewSet(viewsets.ModelViewSet):
+    queryset = Transaksi.objects.all()
+    serializer_class = serializer.TransaksiSerializer
+
 # Create views response welcome to page api
 @api_view(["GET"])
 @permission_classes((permissions.AllowAny,))
