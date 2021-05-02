@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Suspense} from 'react'
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import routes from './routes';
+import {img} from './assets/img/index.js' 
+
+const loading = () => (
+  <div className="text-center" style={{ paddingTop: '50%' }}>
+    <img src={img.logo} alt="loading" />
+  </div>
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={loading()}>
+        <Switch>
+        {
+          routes.map((route, idx) =>
+            route.component ? (
+              <Route
+                key={idx}
+                path={route.path}
+                exact={route.exact}
+                name={route.name}
+                render={props => <route.component {...props}/>}
+              />
+            ) : null
+          )
+        }
+        </Switch>
+      </Suspense>
+    </BrowserRouter>  
   );
 }
 
