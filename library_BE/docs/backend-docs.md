@@ -2,8 +2,9 @@
 Ini adalah dokumentasi yang dikhususkan perihal bagaimana menjalankan Back End.
 1. Pastikan anda sudah menginstall tools Python, Django Framework.
 2. Pastikan juga anda sudah membuat database MySQL dengan nama `library-db`.  
-3. Jika tools yang diperlukan diatas sudah terinstall selanjutnya menginstall library rest API yang dibutuhkan *library_BE* :
+3. Jika tools yang diperlukan diatas sudah terinstall selanjutnya menginstall library rest API yang dibutuhkan *library_BE* dan menambahkan CORS untuk mengizinkan sumber API bisa di akses beda domain:
     - `pip install djangorestframework`
+    - `pip install django-cors-headers`
 4. Migrate schema models ke database MySQL dengan mengetikan perintah.
     - `python manage.py migrate`
 5. (optional) Lalu import data yang sudah ada ke database `library-db` file terletak di (Link Tautan) 
