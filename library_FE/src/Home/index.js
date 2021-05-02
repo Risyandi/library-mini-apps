@@ -60,13 +60,13 @@ const Homepage = (props) => {
             </Navbar.Brand>
             <Navbar.Menu>
             <Navbar.Container>
-                <Navbar.Item href="#">
+                <Navbar.Item href="#pelanggan">
                     Pelanggan
                 </Navbar.Item>
-                <Navbar.Item href="#">
+                <Navbar.Item href="#buku">
                     Buku
                 </Navbar.Item>
-                <Navbar.Item href="#">
+                <Navbar.Item href="#transaksi">
                     Transaksi
                 </Navbar.Item>
             </Navbar.Container>
@@ -74,9 +74,10 @@ const Homepage = (props) => {
         </Navbar>
         
         {/* table pelanggan */}
-        <Section className>
-            <Container>
-            <Table
+        <Section id="pelanggan">
+        <Container>
+            <Table.Container>
+                <Table
             size={'fullwidth'}
             striped bordered hoverable 
             >
@@ -115,6 +116,10 @@ const Homepage = (props) => {
                                         Edit
                                     </Button>
                                     <Button
+                                    color={'success'}>
+                                        Create
+                                    </Button>
+                                    <Button
                                     color={'danger'}
                                     onClick = {
                                         (e) => {
@@ -135,13 +140,15 @@ const Homepage = (props) => {
                 }
                 </tbody>
             </Table>
+            </Table.Container>
         </Container>
         </Section>
 
         {/* table buku */}
-        <Section>
+        <Section id="buku">
             <Container>
-            <Table
+            <Table.Container>
+                <Table
             size={'fullwidth'}
             striped bordered hoverable 
             >
@@ -178,6 +185,10 @@ const Homepage = (props) => {
                                         Edit
                                     </Button>
                                     <Button
+                                    color={'success'}>
+                                        Create
+                                    </Button>
+                                    <Button
                                     color={'danger'}
                                     onClick = {
                                         (e) => {
@@ -198,12 +209,14 @@ const Homepage = (props) => {
                 }
                 </tbody>
             </Table>
+            </Table.Container>
         </Container>
         </Section>
 
         {/* table transaksi */}
-        <Section>
+        <Section id="transaksi">
             <Container>
+            <Table.Container>
                 <Table
                 size={'fullwidth'}
                 striped bordered hoverable 
@@ -237,6 +250,10 @@ const Homepage = (props) => {
                                                 Edit
                                             </Button>
                                             <Button
+                                            color={'success'}>
+                                                Create
+                                            </Button>
+                                            <Button
                                             color={'danger'}
                                             onClick = {
                                                 (e) => {
@@ -257,6 +274,7 @@ const Homepage = (props) => {
                     }
                     </tbody>
                 </Table>
+            </Table.Container>
             </Container>
         </Section>
      

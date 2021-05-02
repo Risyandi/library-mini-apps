@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import 'bulma/css/bulma.min.css';
+import './assets/css/general.css'
 import {reportWebVitals} from './utils';
 
 ReactDOM.render(
