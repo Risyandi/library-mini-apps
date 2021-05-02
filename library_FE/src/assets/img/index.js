@@ -4,9 +4,11 @@
  */
 
 import logo from '../img/logo.svg';
+import logoBulma from '../img/bulma-logo.png';
 
 const img = {
     logo,
+    logoBulma,
 }
 
 export {
