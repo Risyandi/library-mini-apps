@@ -12,7 +12,7 @@ const EditBuku = (props) => {
     <Container fullhd breakpoint={'fluid'}>
         <Box style={{margin: 'auto'}}>
         <Heading subtitle>
-            Form Buku
+            Form Edit Buku
         </Heading>
             <Form.Field>
                 <Form.Label>
