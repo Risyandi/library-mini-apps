@@ -26,6 +26,13 @@ const routes = [
         typeLayout: 'full-layout'
     },
     {
+        path: '/edit/pelanggan/:id',
+        exact: true,
+        name: 'Edit Pelanggan Page',
+        component: PelangganPage,
+        typeLayout: 'full-layout'
+    },
+    {
         path: '/create/buku',
         exact: true,
         name: 'Create Buku Page',
@@ -33,9 +40,23 @@ const routes = [
         typeLayout: 'full-layout'
     },
     {
+        path: '/edit/buku/:id',
+        exact: true,
+        name: 'Edit Buku Page',
+        component: BukuPage,
+        typeLayout: 'full-layout'
+    },
+    {
         path: '/create/transaksi',
         exact: true,
         name: 'Create Transaksi Page',
+        component: TransaksiPage,
+        typeLayout: 'full-layout'
+    },
+    {
+        path: '/edit/transaksi/:id',
+        exact: true,
+        name: 'Edit Transaksi Page',
         component: TransaksiPage,
         typeLayout: 'full-layout'
     },
