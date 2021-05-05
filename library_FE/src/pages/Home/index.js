@@ -11,6 +11,9 @@ const Homepage = (props) => {
     const [pelanggan, setPelanggan] = useState([]);
     const [buku, setBuku] = useState([]);
     const [transaksi, setTransaksi] = useState([]);
+    const [loadmorePelanggan, setLoadMorePelanggan] = useState(3);
+    const [loadmoreBuku, setLoadMoreBuku] = useState(3);
+    const [loadmoreTransaksi, setLoadMoreTransaksi] = useState(3);
 
     useEffect(() => {
         fetchData();
@@ -85,7 +88,7 @@ const Homepage = (props) => {
                 <tbody>
                 {
                     pelanggan !== undefined && pelanggan.length !== 0 ?
-                    pelanggan.map((data, idx) => {
+                    pelanggan.slice(0, loadmorePelanggan).map((data, idx) => {
                     return(
                         <tr key={idx}>
                             <td>{idx+1}</td>
@@ -122,6 +125,17 @@ const Homepage = (props) => {
                     <tr>
                         <td colSpan={8} style={{textAlign: 'center'}}>Data Belum Tersedia</td>
                     </tr>
+                }
+                {
+                    pelanggan !== undefined && pelanggan.length !== 0 ?
+                    <tr 
+                    onClick={() => {
+                        setLoadMorePelanggan(loadmorePelanggan + 2);
+                    }}>
+                        <td colSpan={8} style={{textAlign: 'center'}}>Lihat Data Lainnya</td>
+                    </tr>
+                    :
+                    '' 
                 }
                 </tbody>
             </Table>
@@ -162,7 +176,7 @@ const Homepage = (props) => {
                 <tbody>
                 {
                     buku !== undefined && buku.length !== 0 ? 
-                    buku.map((data, idx) => {
+                    buku.slice(0, loadmoreBuku).map((data, idx) => {
                     return(
                         <tr key={idx}>
                             <td>{idx+1}</td>
@@ -198,6 +212,17 @@ const Homepage = (props) => {
                         <tr>
                             <td colSpan={7} style={{textAlign: 'center'}}>Data Belum Tersedia</td>
                         </tr>
+                }
+                 {
+                    buku !== undefined && buku.length !== 0 ?
+                    <tr 
+                    onClick={() => {
+                        setLoadMoreBuku(loadmoreBuku + 2);
+                    }}>
+                        <td colSpan={7} style={{textAlign: 'center'}}>Lihat Data Lainnya</td>
+                    </tr>
+                    :
+                    '' 
                 }
                 </tbody>
             </Table>
@@ -236,7 +261,7 @@ const Homepage = (props) => {
                     <tbody>
                     {
                         transaksi !== undefined && transaksi.length !== 0 ?
-                        transaksi.map((data, idx) => {
+                        transaksi.slice(0, loadmoreTransaksi).map((data, idx) => {
                             return(
                                 <tr key={idx}>
                                     <td>{idx+1}</td>
@@ -269,6 +294,17 @@ const Homepage = (props) => {
                         <tr>
                             <td colSpan={5} style={{textAlign: 'center'}}>Data Belum Tersedia</td>
                         </tr>
+                    }
+                    {
+                        transaksi !== undefined && transaksi.length !== 0 ?
+                        <tr 
+                        onClick={() => {
+                            setLoadMoreTransaksi(loadmoreTransaksi + 2);
+                        }}>
+                            <td colSpan={5} style={{textAlign: 'center'}}>Lihat Data Lainnya</td>
+                        </tr>
+                        :
+                        '' 
                     }
                     </tbody>
                 </Table>
