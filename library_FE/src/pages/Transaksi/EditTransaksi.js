@@ -12,7 +12,7 @@ const EditTransaksi = (props) => {
     <Container fullhd breakpoint={'fluid'}>
         <Box style={{margin: 'auto'}}>
         <Heading subtitle>
-            Form Transaksi
+            Form Edit Transaksi
         </Heading>
             <Form.Field>
                 <Form.Label>
@@ -47,9 +47,8 @@ const EditTransaksi = (props) => {
                 />
                 </Form.Control>
             </Form.Field>
-           
             <Button.Group align="right">
-                <Button color="success">Create</Button>
+                <Button color="success">Save</Button>
             </Button.Group>
         </Box>
     </Container>
