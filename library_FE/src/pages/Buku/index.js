@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {xhr} from '../../utils';
+import React from 'react';
 import {Container} from 'react-bulma-components';
 
 import NavbarTop from '../../common/components/Navbar';
@@ -12,21 +11,6 @@ const BukuPage = (props) => {
     const idBuku = props.match.params.id;
     const typeCreate = props.location.state.createType;
 
-    const [buku, setBuku] = useState([]);
-
-    useEffect(() => {
-        fetchData();
-        // eslint-disable-next-line
-    }, []);
-
-    const fetchData = async () => {
-        if (idBuku !== undefined) {
-            const bukuRes = await xhr.get(`/buku/${idBuku}`);
-            const dataBuku = bukuRes;
-            setBuku(dataBuku);
-        }
-    }
-
     return (
         <Container fullhd breakpoint={'fluid'}>
             {/* navbar */}
@@ -38,7 +22,7 @@ const BukuPage = (props) => {
                 <CreateBuku/>
             :
                 // Edit form buku
-                <EditBuku data={buku !== undefined ? buku : buku}/>
+                <EditBuku idBuku={idBuku}/>
             }
 
             {/* footer */}
