@@ -1,25 +1,34 @@
 import React, {useEffect, useState} from 'react';
-// import {getCookie, xhr} from '../../utils';
+import {getCookie, xhr} from '../../utils';
 import {Box, Form, Container, Button, Heading} from 'react-bulma-components';
 
 const EditPelanggan = (props) => {
-    // let dataPelanggan = props.data;
+    let idPelanggan = props.idPelanggan;
+
     const initPelanggan = {
-        address: 'hello',
-        email: 'hello',
-        end_date:  'hello',
-        first_name: 'hello',
-        handphone: 'hello', 
-        id: 'hello',
-        join_date: 'hello', 
-        last_name: 'hello',
+        address: '',
+        email: '',
+        end_date:  '',
+        first_name: '',
+        handphone: '', 
+        join_date: '', 
+        last_name: '',
     }
+    const csrfTokenValue = getCookie('csrftoken');
     const [inputs, setInputs] = useState(initPelanggan);
-    console.log(inputs.address, 'value inputs');
 
     useEffect(() => {
-        
+        fetchData();
+        // eslint-disable-next-line
     }, []);
+
+    const fetchData = async () => {
+        if (idPelanggan !== undefined) {
+            const pelangganRes = await xhr.get(`/pelanggan/${idPelanggan}`);
+            const dataPelanggan = pelangganRes;
+            setInputs(dataPelanggan);
+        }
+    }
 
     const onChangeField = fieldName => ({
         target
@@ -30,7 +39,26 @@ const EditPelanggan = (props) => {
     })); 
 
     const onUpdateField = async () => {
-        console.log('update data pelanggan');
+        let formdata = new FormData();
+        formdata.append("address", `${inputs.address}`);
+        formdata.append("email", `${inputs.email}`);
+        formdata.append("end_date", `${inputs.end_date}`);
+        formdata.append("first_name", `${inputs.first_name}`);
+        formdata.append("handphone", `${inputs.handphone}`);
+        formdata.append("join_date", `${inputs.join_date}`);
+        formdata.append("last_name", `${inputs.last_name}`);
+
+        // Display the key/value pairs formdata
+        // for(var pair of formdata.entries()) {
+        //     console.log(pair[0]+ ', '+ pair[1]);
+        // }
+
+        try {
+            const putDataPelanggan = await xhr.put(`/pelanggan/${idPelanggan}/`, formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            return putDataPelanggan;
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -47,7 +75,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="John doe"
                     type="text"
-                    key="first_name"
+                    key="firstname"
                     name="first_name"
                     onChange={onChangeField('first_name')}
                     value={inputs.first_name}
@@ -62,7 +90,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="John doe"
                     type="text"
-                    key="last_name"
+                    key="lastname"
                     name="last_name"
                     onChange={onChangeField('last_name')}
                     value={inputs.last_name}
@@ -122,7 +150,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="1 May 20xx"
                     type="text"
-                    key="join_date"
+                    key="join date"
                     name="join_date"
                     onChange={onChangeField('join_date')}
                     value={inputs.join_date}
@@ -137,7 +165,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="2 May 20xx"
                     type="text"
-                    key="end_date"
+                    key="end date"
                     name="end_date"
                     onChange={onChangeField('end_date')}
                     value={inputs.end_date}

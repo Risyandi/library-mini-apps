@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {xhr} from '../../utils';
+import React from 'react';
 import {Container} from 'react-bulma-components';
 
 import NavbarTop from '../../common/components/Navbar';
@@ -12,21 +11,6 @@ const PelangganPage = (props) => {
     const idPelanggan = props.match.params.id;
     const typeCreate = props.location.state.createType;
 
-    const [pelanggan, setPelanggan] = useState([]);
-
-    useEffect(() => {
-        fetchData();
-        // eslint-disable-next-line
-    }, []);
-
-    const fetchData = async () => {
-        if (idPelanggan !== undefined) {
-            const pelangganRes = await xhr.get(`/pelanggan/${idPelanggan}`);
-            const dataPelanggan = pelangganRes;
-            setPelanggan(dataPelanggan);
-        }
-    }
-
     return (
         <Container fullhd breakpoint={'fluid'}>
             {/* navbar */}
@@ -38,7 +22,7 @@ const PelangganPage = (props) => {
                 <CreatePelanggan />
             :
                 // Edit Form Pelanggan
-                <EditPelanggan data={pelanggan !== undefined ? pelanggan : pelanggan }/>
+                <EditPelanggan idPelanggan={idPelanggan}/>
             }
 
             {/* footer */}
