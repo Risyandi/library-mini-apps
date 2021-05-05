@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {xhr} from '../../utils';
+import React from 'react';
 import {Container} from 'react-bulma-components';
 
 import NavbarTop from '../../common/components/Navbar';
@@ -12,21 +11,6 @@ const TransaksiPage = (props) => {
     const idTransaksi = props.match.params.id;
     const typeCreate = props.location.state.createType;
 
-    const [transaksi, setTransaksi] = useState([]);
-
-    useEffect(() => {
-        fetchData();
-        // eslint-disable-next-line
-    }, []);
-
-    const fetchData = async () => {
-        if (idTransaksi !== undefined) {
-            const transaksiRes = await xhr.get(`/transaksi/${idTransaksi}`);
-            const dataTransaksi = transaksiRes;
-            setTransaksi(dataTransaksi);
-        }
-    }
-
     return (
         <Container fullhd breakpoint={'fluid'}>
             {/* navbar */}
@@ -38,7 +22,7 @@ const TransaksiPage = (props) => {
                 <CreateTransaksi/>
             :
                 // Edit Form Transaksi
-                <EditTransaksi data={transaksi !== undefined ? transaksi : transaksi}/>
+                <EditTransaksi idTransaksi={idTransaksi}/>
             }
 
             {/* footer */}
