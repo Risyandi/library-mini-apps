@@ -59,14 +59,17 @@ const Homepage = (props) => {
         <Container>
             <Table.Container>
                 <Table
-            size={'fullwidth'}
-            striped bordered hoverable 
-            >
+                size={'fullwidth'}
+                striped bordered hoverable 
+                >
                 <thead>
                     <tr>
                         <th colSpan={7} style={{textAlign: 'center'}}>Data Pelanggan</th>
                         <th colSpan={1} style={{textAlign: 'center'}}>
-                            <Link to={'/create/pelanggan'}>
+                            <Link to={{
+                                pathname:'/create/pelanggan',
+                                state:{createType : true}
+                            }}>
                                 <Button
                                 color={'success'}>
                                     Create
@@ -100,7 +103,11 @@ const Homepage = (props) => {
                             <td>{data.end_date}</td>
                             <td>
                                 <Button.Group>
-                                    <Link to={'/edit'}>
+                                    <Link 
+                                    to={{
+                                        pathname:`/edit/pelanggan/${data.id}`,
+                                        state:{createType : false}
+                                    }}>
                                         <Button
                                         color={'primary'}>
                                             Edit
@@ -148,14 +155,17 @@ const Homepage = (props) => {
             <Container>
             <Table.Container>
                 <Table
-            size={'fullwidth'}
-            striped bordered hoverable 
-            >
+                size={'fullwidth'}
+                striped bordered hoverable 
+                >
                 <thead>
                     <tr>
                         <th colSpan={6} style={{textAlign: 'center'}}>Data Buku</th>
                         <th colSpan={1} style={{textAlign: 'center'}}>
-                            <Link to={'/create/buku'}>
+                            <Link to={{
+                                pathname:'/create/buku',
+                                state:{createType : true}
+                            }}>
                                 <Button
                                 color={'success'}>
                                     Create
@@ -187,7 +197,10 @@ const Homepage = (props) => {
                             <td>{data.year_publish}</td>
                             <td>
                                 <Button.Group>
-                                <Link to={'/edit'}>
+                                <Link to={{
+                                    pathname:`/edit/buku/${data.id}`,
+                                    state:{createType : false}
+                                }}>
                                     <Button
                                     color={'primary'}>
                                         Edit
@@ -242,7 +255,10 @@ const Homepage = (props) => {
                         <tr>
                             <th colSpan={4} style={{textAlign: 'center'}}>Data Transaksi</th>
                             <th colSpan={1} style={{textAlign: 'center'}}>
-                                <Link to={'/create/transaksi'}>
+                                <Link to={{
+                                    pathname:'/create/transaksi',
+                                    state:{createType : true}
+                                }}>
                                     <Button
                                     color={'success'}>
                                         Create
@@ -270,7 +286,10 @@ const Homepage = (props) => {
                                     <td>{data.date_return}</td>
                                     <td>
                                         <Button.Group>
-                                        <Link to={'/edit'}>
+                                        <Link to={{
+                                            pathname:`/edit/transaksi/${data.id}`,
+                                            state:{createType : false}
+                                        }}>
                                             <Button
                                             color={'primary'}>
                                                 Edit
