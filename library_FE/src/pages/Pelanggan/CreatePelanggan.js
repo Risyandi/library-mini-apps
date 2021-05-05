@@ -1,25 +1,43 @@
-import React, {useEffect, useState} from 'react';
-// import {getCookie, xhr} from '../../utils';
+import React, {useState} from 'react';
+import {getCookie, xhr} from '../../utils';
 import {Box, Form, Container, Button, Heading} from 'react-bulma-components';
 
-const EditPelanggan = (props) => {
-    // let dataPelanggan = props.data;
+const CreatePelanggan = (props) => {
     const initPelanggan = {
-        address: 'hello',
-        email: 'hello',
-        end_date:  'hello',
-        first_name: 'hello',
-        handphone: 'hello', 
-        id: 'hello',
-        join_date: 'hello', 
-        last_name: 'hello',
+        address: '',
+        email: '',
+        end_date:  '',
+        first_name: '',
+        handphone: '', 
+        join_date: '', 
+        last_name: '',
     }
-    const [inputs, setInputs] = useState(initPelanggan);
-    console.log(inputs.address, 'value inputs');
 
-    useEffect(() => {
-        
-    }, []);
+    const csrfTokenValue = getCookie('csrftoken');
+    const [inputs, setInputs] = useState(initPelanggan);
+
+    const onCreateField = async () => {
+        let formdata = new FormData();
+        formdata.append("address", `${inputs.address}`);
+        formdata.append("email", `${inputs.email}`);
+        formdata.append("end_date", `${inputs.end_date}`);
+        formdata.append("first_name", `${inputs.first_name}`);
+        formdata.append("handphone", `${inputs.handphone}`);
+        formdata.append("join_date", `${inputs.join_date}`);
+        formdata.append("last_name", `${inputs.last_name}`);
+
+        // Display the key/value pairs formdata
+        // for(var pair of formdata.entries()) {
+        //     console.log(pair[0]+ ', '+ pair[1]);
+        // }
+
+        try {
+            const postDataPelanggan = await xhr.post('/pelanggan/', formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            return postDataPelanggan;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const onChangeField = fieldName => ({
         target
@@ -29,15 +47,11 @@ const EditPelanggan = (props) => {
         [fieldName]: target.value
     })); 
 
-    const onUpdateField = async () => {
-        console.log('update data pelanggan');
-    }
-
     return (
     <Container fullhd breakpoint={'fluid'}>
         <Box style={{margin: 'auto'}}>
         <Heading subtitle>
-            Form Edit Pelanggan
+            Form Create Pelanggan
         </Heading>
             <Form.Field>
                 <Form.Label>
@@ -47,7 +61,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="John doe"
                     type="text"
-                    key="first_name"
+                    key="firstname"
                     name="first_name"
                     onChange={onChangeField('first_name')}
                     value={inputs.first_name}
@@ -62,7 +76,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="John doe"
                     type="text"
-                    key="last_name"
+                    key="lastname"
                     name="last_name"
                     onChange={onChangeField('last_name')}
                     value={inputs.last_name}
@@ -107,7 +121,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="jln. adress example No 120."
                     type="text"
-                    key="address"
+                    key="alamat"
                     name="address"
                     onChange={onChangeField('address')}
                     value={inputs.address}
@@ -122,7 +136,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="1 May 20xx"
                     type="text"
-                    key="join_date"
+                    key="joindate"
                     name="join_date"
                     onChange={onChangeField('join_date')}
                     value={inputs.join_date}
@@ -137,7 +151,7 @@ const EditPelanggan = (props) => {
                 <Form.Input
                     placeholder="2 May 20xx"
                     type="text"
-                    key="end_date"
+                    key="expiremember"
                     name="end_date"
                     onChange={onChangeField('end_date')}
                     value={inputs.end_date}
@@ -146,12 +160,12 @@ const EditPelanggan = (props) => {
             </Form.Field>
             <Button.Group 
             align="right"
-            onClick={onUpdateField}>
-                <Button color="success">Save</Button>
+            onClick={onCreateField}>
+                <Button color="success">Create</Button>
             </Button.Group>
         </Box>
     </Container>
     )
 }
 
-export default EditPelanggan;
+export default CreatePelanggan;
