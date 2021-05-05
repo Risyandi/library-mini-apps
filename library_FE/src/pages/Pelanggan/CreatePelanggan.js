@@ -33,6 +33,7 @@ const CreatePelanggan = (props) => {
 
         try {
             const postDataPelanggan = await xhr.post('/pelanggan/', formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            window.location.href = "/";
             return postDataPelanggan;
         } catch (error) {
             console.log(error);

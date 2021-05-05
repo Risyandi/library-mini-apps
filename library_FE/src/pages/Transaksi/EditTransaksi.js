@@ -47,6 +47,7 @@ const EditTransaksi = (props) => {
 
         try {
             const putDataTransaksi = await xhr.put(`/transaksi/${idTransaksi}/`, formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            window.location.href = "/";
             return putDataTransaksi;
         } catch (error) {
             console.log(error);

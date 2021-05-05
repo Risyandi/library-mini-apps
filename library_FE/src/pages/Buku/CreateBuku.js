@@ -29,6 +29,7 @@ const CreateBuku = (props) => {
 
         try {
             const postDataBuku = await xhr.post('/buku/', formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            window.location.href = "/";
             return postDataBuku;
         } catch (error) {
             console.log(error);

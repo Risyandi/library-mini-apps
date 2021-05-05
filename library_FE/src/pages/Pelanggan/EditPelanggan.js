@@ -55,6 +55,7 @@ const EditPelanggan = (props) => {
 
         try {
             const putDataPelanggan = await xhr.put(`/pelanggan/${idPelanggan}/`, formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            window.location.href = "/";
             return putDataPelanggan;
         } catch (error) {
             console.log(error);

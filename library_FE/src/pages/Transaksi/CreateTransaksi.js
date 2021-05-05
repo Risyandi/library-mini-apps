@@ -25,6 +25,7 @@ const CreateTransaksi = (props) => {
 
         try {
             const postDataTransaksi = await xhr.post('/transaksi/', formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            window.location.href = "/";
             return postDataTransaksi;
         } catch (error) {
             console.log(error);

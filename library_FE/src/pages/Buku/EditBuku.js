@@ -51,6 +51,7 @@ const EditBuku = (props) => {
 
         try {
             const putDataBuku = await xhr.put(`/buku/${idBuku}/`, formdata, { 'X-CSRFTOKEN': csrfTokenValue });
+            window.location.href = "/";
             return putDataBuku;
         } catch (error) {
             console.log(error);
