@@ -253,7 +253,7 @@ const Homepage = (props) => {
                 >
                     <thead>
                         <tr>
-                            <th colSpan={4} style={{textAlign: 'center'}}>Data Transaksi</th>
+                            <th colSpan={7} style={{textAlign: 'center'}}>Data Transaksi</th>
                             <th colSpan={1} style={{textAlign: 'center'}}>
                                 <Link to={{
                                     pathname:'/create/transaksi',
@@ -268,6 +268,9 @@ const Homepage = (props) => {
                         </tr>
                         <tr>
                             <th>No </th>
+                            <th>Nama Buku </th>
+                            <th>ISBN Kode </th>
+                            <th>Nama Peminjam</th>
                             <th>Tanggal Mulai Peminjaman</th>
                             <th>Tanggal Akhir Peminjaman</th>
                             <th>Tanggal Pengembalian </th>
@@ -281,6 +284,9 @@ const Homepage = (props) => {
                             return(
                                 <tr key={idx}>
                                     <td>{idx+1}</td>
+                                    <td>{data.detailBuku[0]?.title}</td>
+                                    <td>{data.detailBuku[0]?.isbn_code}</td>
+                                    <td>{data.detailPeminjam[0]?.first_name + ' ' + data.detailPeminjam[0]?.last_name}</td>
                                     <td>{data.start_date_borrow}</td>
                                     <td>{data.end_date_borrow}</td>
                                     <td>{data.date_return}</td>
@@ -311,7 +317,7 @@ const Homepage = (props) => {
                         })
                         :
                         <tr>
-                            <td colSpan={5} style={{textAlign: 'center'}}>Data Belum Tersedia</td>
+                            <td colSpan={8} style={{textAlign: 'center'}}>Data Belum Tersedia</td>
                         </tr>
                     }
                     {
@@ -320,7 +326,7 @@ const Homepage = (props) => {
                         onClick={() => {
                             setLoadMoreTransaksi(loadmoreTransaksi + 2);
                         }}>
-                            <td colSpan={5} style={{textAlign: 'center'}}>Lihat Data Lainnya</td>
+                            <td colSpan={8} style={{textAlign: 'center'}}>Lihat Data Lainnya</td>
                         </tr>
                         :
                         '' 
