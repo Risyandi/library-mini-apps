@@ -41,6 +41,8 @@ class Transaksi(models.Model):
     start_date_borrow = models.CharField(max_length=25)
     end_date_borrow = models.CharField(max_length=25)
     date_return = models.CharField(max_length=25)
+    buku = models.ForeignKey(Buku, on_delete=models.CASCADE, default="")
+    peminjam = models.ForeignKey(Pelanggan, on_delete=models.CASCADE, default="")
     
     class Meta:
         db_table = 'transaksi'
