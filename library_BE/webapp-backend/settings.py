@@ -98,6 +98,12 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306',
+        'OPTIONS': {
+            # set default engine MySQL DB
+            'init_command': 'SET default_storage_engine=INNODB',
+            # solve for error notification : django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails')
+            'init_command': 'SET foreign_key_checks = 0;', 
+        },
     }
 }
 
