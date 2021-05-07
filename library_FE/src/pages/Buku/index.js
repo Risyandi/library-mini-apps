@@ -9,15 +9,15 @@ import CreateBuku from './CreateBuku';
 
 const BukuPage = (props) => {
     const idBuku = props.match.params.id;
-    const typeCreate = props.location.state.createType;
-
+    const urlCreate = props.match.url;
+    
     return (
         <Container fullhd breakpoint={'fluid'}>
             {/* navbar */}
             <NavbarTop/>
             
             {
-            typeCreate !== false ? 
+            urlCreate === "/create/buku" ? 
                 // Create form buku
                 <CreateBuku/>
             :

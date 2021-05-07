@@ -68,7 +68,6 @@ const Homepage = (props) => {
                         <th colSpan={1} style={{textAlign: 'center'}}>
                             <Link to={{
                                 pathname:'/create/pelanggan',
-                                state:{createType : true}
                             }}>
                                 <Button
                                 color={'success'}>
@@ -106,7 +105,6 @@ const Homepage = (props) => {
                                     <Link 
                                     to={{
                                         pathname:`/edit/pelanggan/${data.id}`,
-                                        state:{createType : false}
                                     }}>
                                         <Button
                                         color={'primary'}>
@@ -164,7 +162,6 @@ const Homepage = (props) => {
                         <th colSpan={1} style={{textAlign: 'center'}}>
                             <Link to={{
                                 pathname:'/create/buku',
-                                state:{createType : true}
                             }}>
                                 <Button
                                 color={'success'}>
@@ -199,7 +196,6 @@ const Homepage = (props) => {
                                 <Button.Group>
                                 <Link to={{
                                     pathname:`/edit/buku/${data.id}`,
-                                    state:{createType : false}
                                 }}>
                                     <Button
                                     color={'primary'}>
@@ -257,7 +253,6 @@ const Homepage = (props) => {
                             <th colSpan={1} style={{textAlign: 'center'}}>
                                 <Link to={{
                                     pathname:'/create/transaksi',
-                                    state:{createType : true}
                                 }}>
                                     <Button
                                     color={'success'}>
@@ -294,7 +289,6 @@ const Homepage = (props) => {
                                         <Button.Group>
                                         <Link to={{
                                             pathname:`/edit/transaksi/${data.id}`,
-                                            state:{createType : false}
                                         }}>
                                             <Button
                                             color={'primary'}>

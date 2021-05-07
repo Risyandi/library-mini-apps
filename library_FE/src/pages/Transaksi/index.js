@@ -9,7 +9,7 @@ import CreateTransaksi from './CreateTransaksi';
 
 const TransaksiPage = (props) => {
     const idTransaksi = props.match.params.id;
-    const typeCreate = props.location.state.createType;
+    const urlCreate = props.match.url;
 
     return (
         <Container fullhd breakpoint={'fluid'}>
@@ -17,7 +17,7 @@ const TransaksiPage = (props) => {
             <NavbarTop/>
 
             {
-            typeCreate !== false ? 
+            urlCreate === "/create/transaksi" ? 
                 // Create Form Transaksi
                 <CreateTransaksi/>
             :
