@@ -9,7 +9,8 @@ import CreatePelanggan from './CreatePelanggan';
 
 const PelangganPage = (props) => {
     const idPelanggan = props.match.params.id;
-    const typeCreate = props.location.state.createType;
+    const urlCreate = props.match.url;
+
 
     return (
         <Container fullhd breakpoint={'fluid'}>
@@ -17,7 +18,7 @@ const PelangganPage = (props) => {
             <NavbarTop/>
 
             {
-            typeCreate !== false ? 
+            urlCreate === "/create/pelanggan" ? 
                 // Create Form Pelanggan
                 <CreatePelanggan />
             :
