@@ -8,9 +8,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'is_staff']
 
 class BukuSerializer(serializers.ModelSerializer):
-
-    id = serializers.IntegerField(read_only=True)
-
     class Meta:
         model = Buku 
         fields = '__all__'
@@ -26,8 +23,6 @@ class PelangganSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TransaksiSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-
     # initial
     detailBuku = serializers.SerializerMethodField()
     detailPeminjam = serializers.SerializerMethodField()
