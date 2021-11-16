@@ -49,4 +49,4 @@ Ini adalah dokumentasi yang dikhususkan perihal bagaimana menjalankan Back End.
 
 ### Membuat akun superadmin
 untuk membuat akun superadmin anda bisa menggunakan cara dengan mengetikan perintah berikut ini:  
->`$ django-admin createsuperuser`
+>`$ python manage.py createsuperuser`
