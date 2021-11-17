@@ -50,3 +50,7 @@ Ini adalah dokumentasi yang dikhususkan perihal bagaimana menjalankan Back End.
 ### Membuat akun superadmin
 untuk membuat akun superadmin anda bisa menggunakan cara dengan mengetikan perintah berikut ini:  
 >`$ python manage.py createsuperuser`
+
+### Cek versi django
+untuk memeriksa versi dari framework django anda bisa menggunakan cara dengan mengetikan perintah berikut ini:
+>`$ django-admin --version` or `$ python -m django --version`
