@@ -54,3 +54,13 @@ untuk membuat akun superadmin anda bisa menggunakan cara dengan mengetikan perin
 ### Cek versi django
 untuk memeriksa versi dari framework django anda bisa menggunakan cara dengan mengetikan perintah berikut ini:
 >`$ django-admin --version` or `$ python -m django --version`
+
+### Mengubah port 
+untuk mengubah port dimana server anda dijalankan anda bisa menggunakan cara dengan mengetikan perintah berikut ini:
+>`$ python manage.py runserver 8080` angka port bisa disesuaikan  
+
+### Membuat Project dan Apps
+Apa perbedaan project dan apps, sebuah apps adalah sebuah web aplikasi yang melakukan sesuatu seperti webblog system, sebuah database record, atau aplikasi polling. sedangkan project adalah sebuah koleksi konfigurasi dan apps untuk sebuah apps. project bisa mempunyai isi beberapa apps dan apps bisa mempunyai beberapa project.
+
+>`$ python manage.py startproject website-project`  
+>`$ python manage.py startapp polls`
