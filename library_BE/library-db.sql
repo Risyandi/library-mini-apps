@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2021 at 06:03 PM
+-- Generation Time: Oct 29, 2021 at 10:13 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -129,7 +129,7 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$216000$Pc8iTujnVVAj$SuuJ/gZilMMjo745YkRXUTa48cn/d3swPr7pdh9dvdU=', '2021-05-02 12:51:00.337232', 1, 'admin', '', '', 'admin@sunson.xyz', 1, 1, '2021-04-30 10:37:08.645921');
+(1, 'pbkdf2_sha256$216000$Pc8iTujnVVAj$SuuJ/gZilMMjo745YkRXUTa48cn/d3swPr7pdh9dvdU=', '2021-05-06 05:46:26.013965', 1, 'admin', '', '', 'admin@sunson.xyz', 1, 1, '2021-04-30 10:37:08.645921');
 
 -- --------------------------------------------------------
 
@@ -175,10 +175,11 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `title`, `isbn_code`, `author`, `publisher`, `year_publish`) VALUES
-(16, 'Filosofi Teras', 'ISBN-19029191-2021', 'Henry Manampiring', 'Kompas Gramedia', '2021'),
+(16, 'Filosofi Teras', 'ISBN-19029191-2021', 'Henry Manampiring', 'Kompas Gramedia', '2022'),
 (17, 'Seni Hidup Minimalis', 'ISBN-19029200-2021', 'Francine Jay', 'Kompas Gramedia', '2021'),
 (18, 'Berkisar Merah', 'ISBN-19029800-2021', 'Ahmad Tauhari', 'Kompas Gramedia', '2021'),
-(19, 'Sebuah Seni Untuk Bersikap Bodo Amat', 'ISBN-19029101-2021', 'Mark Manson', 'Kompas Gramedia', '2021');
+(19, 'Sebuah Seni Untuk Bersikap Bodo Amat', 'ISBN-19029101-2021', 'Mark Manson', 'Kompas Gramedia', '2021'),
+(22, 'Atomic Habits', 'ISBN-0918203102-2021', 'Nano', 'Kompas Gramedia', '2021');
 
 -- --------------------------------------------------------
 
@@ -282,7 +283,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (16, 'auth', '0011_update_proxy_permissions', '2021-04-30 10:27:11.309395'),
 (17, 'auth', '0012_alter_user_first_name_max_length', '2021-04-30 10:27:11.373400'),
 (18, 'sessions', '0001_initial', '2021-04-30 10:27:11.485387'),
-(19, 'api', '0001_create_new_table', '2021-05-01 07:10:44.806358');
+(19, 'api', '0001_create_new_table', '2021-05-01 07:10:44.806358'),
+(20, 'api', '0002_create_relationship_transaksi', '2021-05-06 05:13:01.386879'),
+(21, 'api', '0003_create_relationship_transaksi_update', '2021-05-06 05:19:21.527987');
 
 -- --------------------------------------------------------
 
@@ -301,7 +304,8 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('f8kdxs0f6gbhf2ys0gnqe6pd0xyhfwjo', '.eJxVjEEOwiAQRe_C2pBCKTO6dN8zkGEYpGpoUtqV8e7apAvd_vfef6lA21rC1mQJU1IXZdTpd4vED6k7SHeqt1nzXNdlinpX9EGbHuckz-vh_h0UauVbQ9dJD2fXxyF5SZhQPHvnMxOgE0QeKBsAY9CjBesYvQC5nB1bjqjeH9lGN8o:1lcmnp:ypLJlrpTGuZO6b9lPtGHi59wj7pPyVxM6cP9lPFD8ek', '2021-05-15 10:24:49.491175');
+('f8kdxs0f6gbhf2ys0gnqe6pd0xyhfwjo', '.eJxVjEEOwiAQRe_C2pBCKTO6dN8zkGEYpGpoUtqV8e7apAvd_vfef6lA21rC1mQJU1IXZdTpd4vED6k7SHeqt1nzXNdlinpX9EGbHuckz-vh_h0UauVbQ9dJD2fXxyF5SZhQPHvnMxOgE0QeKBsAY9CjBesYvQC5nB1bjqjeH9lGN8o:1lcmnp:ypLJlrpTGuZO6b9lPtGHi59wj7pPyVxM6cP9lPFD8ek', '2021-05-15 10:24:49.491175'),
+('l5ahrovz6slhvwyo2u53w1j67e32wr0v', '.eJxVjEEOwiAQRe_C2pBCKTO6dN8zkGEYpGpoUtqV8e7apAvd_vfef6lA21rC1mQJU1IXZdTpd4vED6k7SHeqt1nzXNdlinpX9EGbHuckz-vh_h0UauVbQ9dJD2fXxyF5SZhQPHvnMxOgE0QeKBsAY9CjBesYvQC5nB1bjqjeH9lGN8o:1leWqA:FGcu6SewdvHZsGfB6a0-29quB2-maHGZc3QqtZU4KJY', '2021-05-20 05:46:26.029000');
 
 -- --------------------------------------------------------
 
@@ -348,11 +352,12 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id`, `first_name`, `last_name`, `address`, `handphone`, `email`, `join_date`, `end_date`) VALUES
-(1, 'Mamat', 'Sauri', 'Jln Bengawan No 17, Jakarta.', '08129381293', 'mamat@sauri.com', '1 Januari 2021', '1 Desember 2021'),
+(1, 'Mamato', 'Sauri', 'Jln Bengawan No 17, Jakarta.', '08129381293', 'mamat@sauri.com', '1 Januari 2021', '1 Desember 2022'),
 (2, 'Jajang', 'Karpidin', 'Jln Lengkong No.90, Bandung', '08123791900', 'Jajang@mail.com', '1 Januari 2021', '1 Desember 2021'),
 (4, 'Riki', 'Subagja', 'Jln. Kaptain Tendean No.80, Jakarta', '08123989119', 'riki@subagja.com', '1 May 2021', '30 Desember 2021'),
 (5, 'Amar', 'Nanda', 'Jln. Kaptain Tendean No.80, Bandung', '08122343434', 'amar@amarnanda.com', '1 May 2021', '30 Desember 2021'),
-(6, 'Koreng', 'Nandana', 'Jln. Kaptain Tendean No.81, Bandung', '0812234343423', 'koreng@nandana.com', '1 May 2021', '30 Desember 2021');
+(6, 'Koreng', 'Nandana', 'Jln. Kaptain Tendean No.81, Bandung', '0812234343423', 'koreng@nandana.com', '1 May 2021', '30 Desember 2021'),
+(13, 'Ilham', 'Ramadan', 'Jln Kemuning No 100, Bandung', '081292390', 'Ilham@ramadan.com', '1 May 2021', '30 Desember 2021');
 
 -- --------------------------------------------------------
 
@@ -364,20 +369,18 @@ CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL,
   `start_date_borrow` varchar(25) NOT NULL,
   `end_date_borrow` varchar(25) NOT NULL,
-  `date_return` varchar(25) NOT NULL
+  `date_return` varchar(25) NOT NULL,
+  `buku_id` int(11) NOT NULL,
+  `peminjam_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id`, `start_date_borrow`, `end_date_borrow`, `date_return`) VALUES
-(4, '1 May 2021', '14 May 2021', '15 May 2021'),
-(5, '20 May 2021', '24 May 2021', '25 May 2021'),
-(6, '19 May 2021', '20 May 2021', '21 May 2021'),
-(7, '20 May 2021', '22 May 2021', '23 May 2021'),
-(8, '15 May 2021', '17 May 2021', '18 May 2021'),
-(9, '23 May 2021', '25 May 2021', '26 May 2021');
+INSERT INTO `transaksi` (`id`, `start_date_borrow`, `end_date_borrow`, `date_return`, `buku_id`, `peminjam_id`) VALUES
+(13, '1 May 2021', '20 May 2021', '21 May 2021', 17, 1),
+(17, '1 May 2021', '5 May 2021', '6 May 2021', 19, 5);
 
 --
 -- Indexes for dumped tables
@@ -470,7 +473,9 @@ ALTER TABLE `pelanggan`
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `transaksi_buku_id_54059fbe_fk_buku_id` (`buku_id`),
+  ADD KEY `transaksi_peminjam_id_5c329f28_fk_pelanggan_id` (`peminjam_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -516,7 +521,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
@@ -534,7 +539,7 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -546,13 +551,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
@@ -584,6 +589,13 @@ ALTER TABLE `auth_user_groups`
 ALTER TABLE `auth_user_user_permissions`
   ADD CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
   ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_buku_id_54059fbe_fk_buku_id` FOREIGN KEY (`buku_id`) REFERENCES `buku` (`id`),
+  ADD CONSTRAINT `transaksi_peminjam_id_5c329f28_fk_pelanggan_id` FOREIGN KEY (`peminjam_id`) REFERENCES `pelanggan` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
